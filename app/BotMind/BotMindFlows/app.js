@@ -12,7 +12,7 @@ async function runSample(projectId = 'prueba-sljsfs') {
 
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient({
-    keyFilename:"C:/Users/vegad/Desktop/Universidad/2020/Codigo abierto/alpha/app/BotMind/BotMindFlows/Prueba-62bdd537b77e.json"
+    keyFilename:"Prueba-62bdd537b77e.json"
   });
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 
