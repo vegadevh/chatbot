@@ -13,82 +13,7 @@ const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i
 
 const questions = {
   start: {
-    botPrompt: 'Hello Human, my name is <strong>Alpha</strong>, I am an awesome <strong>chatbot</strong>',
-    answers: [
-      {
-        nextId: 'myPurpose',
-      },
-    ],
-  },
-  myPurpose: {
-    botPrompt: 'My purpose is to be a simple chatbot that <strong>guides users</strong> and <strong>is able to make decisions and make recommendations.</strong>',
-    answers: [
-      {
-        nextId: 'yourName',
-      },
-    ],
-  },
-  yourName: {
-    botPrompt: 'So, What is your name?',
-    input: textField(),
-    answers: [
-      {
-        answer: common_greetings,
-        nextId: 'greetings_notAName',
-      },
-      {
-        answer: common_greetings_negative,
-        catchName: true,
-        nextId: 'asYouCanSee',
-      },
-    ],
-  },
-  greetings_notAName: {
-	  botPrompt: 'Hello! <strong>I\'m still learning how to talk to humans</strong>, which means my conversational range is not very wide yet... 😅',
-	  answers: [
-	    {
-	      nextId: 'greetings_whatsYourNameAgain',
-	    },
-	  ],
-  },
-  greetings_whatsYourNameAgain: {
-	  botPrompt: 'So what’s <strong>your name</strong>?',
-	  input: textField(),
-	  answers: [
-	    {
-	      answer: common_greetings,
-	      nextId: 'greetings_notAName',
-	    },
-	    {
-	      answer: common_greetings_negative,
-	      catchName: true,
-	      nextId: 'asYouCanSee',
-	    },
-	  ],
-  },
-  asYouCanSee: {
-    botPrompt: 'So <strong>@varName</strong>, as you can see I can remember things the user says.',
-    type: RTypes.TRANSFORMED_TEXT,
-    varName: 'userName',
-    answers: [
-			{ nextId: 'emojisHtml' },
-    ],
-  },
-  emojisHtml: {
-    botPrompt: "I can enhance my dialogue with emojis 🎉 and also using inline <span style='color:purple; background-color:white;font-weight:bold'>HTML</span>",
-    answers: [
-			{ nextId: 'mediaBubbles1' },
-    ],
-  },
-  mediaBubbles1: {
-    botPrompt: 'I can also share <strong>images and animated GIFs</strong> like so:',
-    answers: [
-			{ nextId: 'mediaBubbles2' },
-    ],
-  },
-  mediaBubbles2: {
-    botPrompt: 'https://media.giphy.com/media/bDL3BsB4ViI2k/giphy.gif',
-    type: RTypes.MEDIA,
+    botPrompt: 'Hola, soy un <strong>chatbot</strong>. ¿En que puedo ayudarte?',
     answers: [
       {
         nextId: 'select',
@@ -96,9 +21,9 @@ const questions = {
     ],
   },
   select: {
-    botPrompt: 'I can also offer <strong>predefined options</strong> to choose from:',
+    botPrompt: 'Puedes buscar informacion sabre la <strong>Universidad</strong> y tambien sobre la <strong>biblioteca</strong>:',
     varName: 'userName',
-    input: selectField(['Dope!', 'Cool!']),
+    input: textField() /**selectField(['Universidad', 'Biblioteca'])*/,
     answers: [
 			{ nextId: 'tags' },
     ],
@@ -336,6 +261,5 @@ const questions = {
     ],
   },
 };
-
 
 export default questions;
