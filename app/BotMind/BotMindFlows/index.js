@@ -15,9 +15,9 @@ const common_greetings = /(^hello|^hllo|^hi|^hey|^hola|^sup)\b\s?.*$/i;
 const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i;
 
 let i = 0;
-let mensajeRecibido = MiModulo.MiModulo(0, 'Dato');
+const mensajeRecibido = MiModulo.MiModulo();
 
-let questions = {
+const questions = {
 
   start: {
     botPrompt: 'Hola, soy un <strong>chatbot</strong>. ¿En que puedo ayudarte?',
@@ -30,13 +30,13 @@ let questions = {
   select: {
     botPrompt: 'Puedes buscar informacion sabre la <strong>Universidad</strong> y tambien sobre la <strong>biblioteca</strong>:',
     varName: 'userName',
-    input: textField() /**selectField(['Universidad', 'Biblioteca'])*/,
+    input: textField() /* *selectField(['Universidad', 'Biblioteca']) */,
     answers: [
-			{ nextId: 'req' },
+        { nextId: 'req' },
     ],
   },
   req: {
-    botPrompt: mensajeRecibido,
+    botPrompt: mensajeRecibido.toString(),
     input: textField(),
     answers: [
         { nextId: 'res' },

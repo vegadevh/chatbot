@@ -6,7 +6,7 @@ const uuid = require('uuid');
  * Send a query to the dialogflow agent, and return the query result.
  * @param {string} projectId The project to be used
  */
-module.exports.MiModulo = async function runSample(intento, mensaje) {
+async function runSample() {
   // A unique identifier for the given session
   const sessionId = uuid.v4();
   const projectId = 'prueba-sljsfs';
@@ -22,7 +22,7 @@ module.exports.MiModulo = async function runSample(intento, mensaje) {
     queryInput: {
       text: {
         // The query to send to the dialogflow agent
-        text: mensaje,
+        text: 'Dato',
         // The language used by the client (en-US)
         languageCode: 'es-US',
       },
@@ -33,7 +33,7 @@ module.exports.MiModulo = async function runSample(intento, mensaje) {
   // Send request and log result
   const responses = await sessionClient.detectIntent(request);
   console.log('Detected intent');
-  const result = responses[intento].queryResult;
+  const result = responses[0].queryResult;
   console.log(`  Query: ${result.queryText}`);
   console.log(`  Response: ${result.fulfillmentText}`);
   if (result.intent) {
@@ -42,6 +42,9 @@ module.exports.MiModulo = async function runSample(intento, mensaje) {
     console.log(`  No intent matched.`);
   }
   const bot = result.fulfillmentText;
-  return bot.toString();
+  console.log(bot);
+  return bot;
 }
+
+runSample();
 //---------------------------------------------------------------------------------------------------------
