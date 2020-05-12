@@ -7,16 +7,17 @@ import {
   endOfConversation,
 } from '../StateFormatter';
 import * as RTypes from '../responseTypes';
-import runSample from 'app';
 import DialogueFromUser from "../../components/DialogueFromUser";
+
+const MiModulo = require('./app');
 
 const common_greetings = /(^hello|^hllo|^hi|^hey|^hola|^sup)\b\s?.*$/i;
 const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i;
 
 let i = 0;
-let mensajeRecibido = runSample(0, 'Datos');
+let mensajeRecibido = MiModulo.MiModulo(0, 'Dato');
 
-const questions = {
+let questions = {
 
   start: {
     botPrompt: 'Hola, soy un <strong>chatbot</strong>. ¿En que puedo ayudarte?',

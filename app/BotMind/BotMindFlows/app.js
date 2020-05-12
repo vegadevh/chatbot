@@ -6,7 +6,7 @@ const uuid = require('uuid');
  * Send a query to the dialogflow agent, and return the query result.
  * @param {string} projectId The project to be used
  */
-export async function runSample(intento, mensaje) {
+module.exports.MiModulo = async function runSample(intento, mensaje) {
   // A unique identifier for the given session
   const sessionId = uuid.v4();
   const projectId = 'prueba-sljsfs';
@@ -44,6 +44,4 @@ export async function runSample(intento, mensaje) {
   const bot = result.fulfillmentText;
   return bot.toString();
 }
-
-runSample();
 //---------------------------------------------------------------------------------------------------------
