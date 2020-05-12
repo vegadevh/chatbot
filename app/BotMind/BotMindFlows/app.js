@@ -12,22 +12,27 @@ async function runSample(projectId = 'prueba-sljsfs') {
 
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient({
-    keyFilename:"Prueba-62bdd537b77e.json"
+    keyFilename: "Prueba-62bdd537b77e.json"
   });
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 
   // The text query request.
+  myRequest();
+}
+
+export function myRequest(mensaje) {
   const request = {
     session: sessionPath,
     queryInput: {
       text: {
         // The query to send to the dialogflow agent
-        text: 'Datos',
+        text: mensaje,
         // The language used by the client (en-US)
         languageCode: 'es-US',
       },
     },
   };
+
 
   // Send request and log result
   const responses = await sessionClient.detectIntent(request);
