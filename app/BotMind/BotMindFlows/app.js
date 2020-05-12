@@ -6,7 +6,7 @@ const uuid = require('uuid');
  * Send a query to the dialogflow agent, and return the query result.
  * @param {string} projectId The project to be used
  */
-async function runSample(intento, mensaje) {
+export async function runSample(intento, mensaje) {
   // A unique identifier for the given session
   const sessionId = uuid.v4();
   const projectId = 'prueba-sljsfs';
@@ -41,8 +41,8 @@ async function runSample(intento, mensaje) {
   } else {
     console.log(`  No intent matched.`);
   }
-  const bot = `${result.fulfillmentText}`;
-  return bot;
+  const bot = result.fulfillmentText;
+  return bot.toString();
 }
 
 runSample();

@@ -7,13 +7,14 @@ import {
   endOfConversation,
 } from '../StateFormatter';
 import * as RTypes from '../responseTypes';
-import myRequest from 'app';
+import runSample from 'app';
 import DialogueFromUser from "../../components/DialogueFromUser";
 
 const common_greetings = /(^hello|^hllo|^hi|^hey|^hola|^sup)\b\s?.*$/i;
 const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i;
 
 let i = 0;
+let mensajeRecibido = runSample(0, 'Datos');
 
 const questions = {
 
@@ -34,20 +35,20 @@ const questions = {
     ],
   },
   req: {
-    botPrompt: myRequest(i, 'Datos'),
+    botPrompt: mensajeRecibido,
     input: textField(),
     answers: [
         { nextId: 'res' },
     ],
   },
   res: {
-    botPrompt: myRequest(i, 'hola'),
+    botPrompt: 'Hola',
     input: textField(),
     answers: [
         { nextId: 'req' },
     ],
   },
 };
-i += 1;
+// i += 1;
 
 export default questions;
