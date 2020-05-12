@@ -33,20 +33,19 @@ const questions = {
 			{ nextId: 'tags' },
     ],
   },
-  while (true) {
+  while (True) {
     req: {
       botPrompt: myRequest(i,DialogueFromUser.propTypes.dialogue),
-          input: tagsField(['Do go on..', 'Amazing!', "I'm loving this!", '🍕']),
+          input: tagsField(),
           answers: [
-        { nextId: 'bagsSystem' },
-      ],
+          { nextId: 'res' },
+          ],
     };
-    req: {
-      botPrompt: ,
-      varName: 'userName',
-          input: tagsField(['Do go on..', 'Amazing!', "I'm loving this!", '🍕']),
+    res: {
+      botPrompt: myRequest(i,DialogueFromUser.propTypes.dialogue),
+          input: tagsField(),
           answers: [
-        { nextId: 'bagsSystem' },
+        { nextId: 'req' },
       ],
     };
   }
