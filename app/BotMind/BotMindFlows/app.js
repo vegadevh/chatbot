@@ -20,7 +20,7 @@ async function runSample(projectId = 'prueba-sljsfs') {
   myRequest();
 }
 
-export function myRequest(mensaje) {
+export async function myRequest(intento,mensaje) {
   const request = {
     session: sessionPath,
     queryInput: {
@@ -37,7 +37,7 @@ export function myRequest(mensaje) {
   // Send request and log result
   const responses = await sessionClient.detectIntent(request);
   console.log('Detected intent');
-  const result = responses[0].queryResult;
+  const result = responses[intento].queryResult;
   console.log(`  Query: ${result.queryText}`);
   console.log(`  Response: ${result.fulfillmentText}`);
   if (result.intent) {
@@ -45,6 +45,8 @@ export function myRequest(mensaje) {
   } else {
     console.log(`  No intent matched.`);
   }
+  var bot = `${result.fulfillmentText}`;
+  return bot;
 }
 
 runSample()

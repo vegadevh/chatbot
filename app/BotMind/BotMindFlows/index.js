@@ -8,9 +8,12 @@ import {
 } from '../StateFormatter';
 import * as RTypes from '../responseTypes';
 import myRequest from 'app';
+import DialogueFromUser from "../../components/DialogueFromUser";
 
 const common_greetings = /(^hello|^hllo|^hi|^hey|^hola|^sup)\b\s?.*$/i;
 const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i;
+
+var i=0;
 
 const questions = {
 
@@ -30,20 +33,22 @@ const questions = {
 			{ nextId: 'tags' },
     ],
   },
-  while (condition) {
-    tags: {
-      botPrompt: ,
-      varName: 'userName',
-      input: tagsField(['Do go on..', 'Amazing!', "I'm loving this!", '🍕']),
-      answers: [
+  while (true) {
+    req: {
+      botPrompt: myRequest(i,DialogueFromUser.propTypes.dialogue),
+          input: tagsField(['Do go on..', 'Amazing!', "I'm loving this!", '🍕']),
+          answers: [
         { nextId: 'bagsSystem' },
       ],
-    },
-    reponse:{
-      botPrompt: 
-    }
-
-
+    };
+    req: {
+      botPrompt: ,
+      varName: 'userName',
+          input: tagsField(['Do go on..', 'Amazing!', "I'm loving this!", '🍕']),
+          answers: [
+        { nextId: 'bagsSystem' },
+      ],
+    };
   }
 };
 
