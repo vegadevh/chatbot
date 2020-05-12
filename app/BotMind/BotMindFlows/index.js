@@ -13,7 +13,7 @@ import DialogueFromUser from "../../components/DialogueFromUser";
 const common_greetings = /(^hello|^hllo|^hi|^hey|^hola|^sup)\b\s?.*$/i;
 const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i;
 
-var i=0;
+let i = 0;
 
 const questions = {
 
@@ -30,25 +30,24 @@ const questions = {
     varName: 'userName',
     input: textField() /**selectField(['Universidad', 'Biblioteca'])*/,
     answers: [
-			{ nextId: 'tags' },
+			{ nextId: 'req' },
     ],
   },
-  while (True) {
-    req: {
-      botPrompt: myRequest(i,DialogueFromUser.propTypes.dialogue),
-          input: tagsField(),
-          answers: [
-          { nextId: 'res' },
-          ],
-    };
-    res: {
-      botPrompt: myRequest(i,DialogueFromUser.propTypes.dialogue),
-          input: tagsField(),
-          answers: [
+  req: {
+    botPrompt: myRequest(i, 'Datos'),
+    input: textField(),
+    answers: [
+        { nextId: 'res' },
+    ],
+  },
+  res: {
+    botPrompt: myRequest(i, 'hola'),
+    input: textField(),
+    answers: [
         { nextId: 'req' },
-      ],
-    };
-  }
+    ],
+  },
 };
+i += 1;
 
 export default questions;

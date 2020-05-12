@@ -6,21 +6,17 @@ const uuid = require('uuid');
  * Send a query to the dialogflow agent, and return the query result.
  * @param {string} projectId The project to be used
  */
-async function runSample(projectId = 'prueba-sljsfs') {
+async function runSample(intento, mensaje) {
   // A unique identifier for the given session
   const sessionId = uuid.v4();
+  const projectId = 'prueba-sljsfs';
 
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient({
-    keyFilename: "Prueba-62bdd537b77e.json"
+    keyFilename: 'Prueba-62bdd537b77e.json',
   });
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 
-  // The text query request.
-  myRequest();
-}
-
-export async function myRequest(intento,mensaje) {
   const request = {
     session: sessionPath,
     queryInput: {
@@ -45,9 +41,9 @@ export async function myRequest(intento,mensaje) {
   } else {
     console.log(`  No intent matched.`);
   }
-  var bot = `${result.fulfillmentText}`;
+  const bot = `${result.fulfillmentText}`;
   return bot;
 }
 
-runSample()
+runSample();
 //---------------------------------------------------------------------------------------------------------
