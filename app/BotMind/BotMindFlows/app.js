@@ -48,5 +48,8 @@ async function runSample() {
 
 runSample();
 
-// export default runSample();
+module.exports = {
+  runSample
+};
+
 //---------------------------------------------------------------------------------------------------------

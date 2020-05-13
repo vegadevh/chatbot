@@ -15,7 +15,7 @@ const common_greetings = /(^hello|^hllo|^hi|^hey|^hola|^sup)\b\s?.*$/i;
 const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i;
 
 let i = 0;
-const mensajeRecibido = MiModulo.MiModulo();
+const mensajeRecibido = MiModulo.runSample();
 
 const questions = {
 
@@ -33,7 +33,6 @@ const questions = {
     input: textField() /* *selectField(['Universidad', 'Biblioteca']) */,
     answers: [
         {
-          answers: 'me trabe',
           nextId: 'req',
         },
     ],
