@@ -7,15 +7,15 @@ import {
   endOfConversation,
 } from '../StateFormatter';
 import * as RTypes from '../responseTypes';
-import DialogueFromUser from "../../components/DialogueFromUser";
+import DialogueFromUser from '../../components/DialogueFromUser';
 
-const MiModulo = require('./app');
+/* Importar funcion de app.js */
 
 const common_greetings = /(^hello|^hllo|^hi|^hey|^hola|^sup)\b\s?.*$/i;
 const common_greetings_negative = /(?!(^hello|^hi|^hey|^hllo|^sup|^hola)\b)\w+/i;
 
-let i = 0;
-const mensajeRecibido = MiModulo.runSample();
+/* Crear variable contador de turno */
+/* Crear variable que reciba el mensaje de la funcion importada de app.js */
 
 const questions = {
 
@@ -32,32 +32,31 @@ const questions = {
     varName: 'userName',
     input: textField() /* *selectField(['Universidad', 'Biblioteca']) */,
     answers: [
-        {
-          nextId: 'req',
-        },
+      {
+        nextId: 'req',
+      },
     ],
   },
   req: {
-    botPrompt: mensajeRecibido.toString(),
+    botPrompt: 'Dato',
     input: textField(),
     answers: [
-        {
-          answers: common_greetings_negative,
-          nextId: 'res',
-        },
+      {
+        answers: common_greetings,
+        nextId: 'res',
+      },
     ],
   },
   res: {
     botPrompt: 'Hola',
     input: textField(),
     answers: [
-        {
-          answers: common_greetings_negative,
-          nextId: 'req',
-        },
+      {
+        answers: common_greetings_negative,
+        nextId: 'req',
+      },
     ],
   },
 };
-// i += 1;
 
 export default questions;
