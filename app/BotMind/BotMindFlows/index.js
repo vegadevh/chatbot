@@ -32,21 +32,30 @@ const questions = {
     varName: 'userName',
     input: textField() /* *selectField(['Universidad', 'Biblioteca']) */,
     answers: [
-        { nextId: 'req' },
+        {
+          answers: 'me trabe',
+          nextId: 'req',
+        },
     ],
   },
   req: {
     botPrompt: mensajeRecibido.toString(),
     input: textField(),
     answers: [
-        { nextId: 'res' },
+        {
+          answers: common_greetings_negative,
+          nextId: 'res',
+        },
     ],
   },
   res: {
     botPrompt: 'Hola',
     input: textField(),
     answers: [
-        { nextId: 'req' },
+        {
+          answers: common_greetings_negative,
+          nextId: 'req',
+        },
     ],
   },
 };

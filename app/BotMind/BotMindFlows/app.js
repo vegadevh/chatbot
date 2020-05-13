@@ -22,7 +22,7 @@ async function runSample() {
     queryInput: {
       text: {
         // The query to send to the dialogflow agent
-        text: 'Dato',
+        text: 'tirame datos',
         // The language used by the client (en-US)
         languageCode: 'es-US',
       },
@@ -41,10 +41,12 @@ async function runSample() {
   } else {
     console.log(`  No intent matched.`);
   }
-  const bot = result.fulfillmentText;
+  const bot = JSON.stringify(result.fulfillmentText);
   console.log(bot);
-  return bot;
+  return await bot;
 }
 
 runSample();
+
+// export default runSample();
 //---------------------------------------------------------------------------------------------------------
