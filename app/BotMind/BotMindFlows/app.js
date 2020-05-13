@@ -47,11 +47,13 @@ async function runSample() {
   }
   /* no lo cambia */
   bot = JSON.stringify(result.fulfillmentText);
+  recibo(bot);
   return bot;
 }
 
 runSample();
 
-
-
+function recibo(mensajeBot) {
+  console.log(mensajeBot);
+}
 //---------------------------------------------------------------------------------------------------------
